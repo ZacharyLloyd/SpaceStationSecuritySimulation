@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="decription1.Text" xml:space="preserve">
+    <value>Welcome, this is a random number generator that will give you a number.
+You will have input boxes to enter the codes for the given number for the given bases (use lower case letters).
+Once you enter in the codes you think are correct check with the enter code button.
+The Status display will tell you whether you are granted access or to try again.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
