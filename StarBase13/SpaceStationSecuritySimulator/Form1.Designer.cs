@@ -131,7 +131,7 @@
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Location = new System.Drawing.Point(1007, 120);
+            this.StatusLabel.Location = new System.Drawing.Point(875, 120);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(74, 13);
             this.StatusLabel.TabIndex = 9;
@@ -139,7 +139,7 @@
             // 
             // StatusMessageBox
             // 
-            this.StatusMessageBox.Location = new System.Drawing.Point(919, 144);
+            this.StatusMessageBox.Location = new System.Drawing.Point(780, 144);
             this.StatusMessageBox.Multiline = true;
             this.StatusMessageBox.Name = "StatusMessageBox";
             this.StatusMessageBox.ReadOnly = true;

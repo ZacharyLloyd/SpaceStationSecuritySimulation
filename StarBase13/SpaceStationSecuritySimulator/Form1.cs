@@ -26,7 +26,7 @@ namespace SpaceStationSecuritySimulator
             //Int for minimum int in random number generator
             int min = 0;
             //Int for max int in random number generator
-            int max = 1000;
+            int max = 10;
             //Give me a random number
             int randomNumberBase10 = RandomNumber(min, max);
 
@@ -40,8 +40,9 @@ namespace SpaceStationSecuritySimulator
             label_display_base16.Text = base16;
             label_display_base2.Text = base2;
 
+            //Set enter codes button to enabled
             EnterCodes.Enabled = true;
-
+            
             base16check = base16;
             base2check = base2;
         }
@@ -56,17 +57,65 @@ namespace SpaceStationSecuritySimulator
 
         private void EnterCodes_Click(object sender, EventArgs e)
         {
-            label_display_base16.Visible = true;
-            label_display_base2.Visible = true;
-            if(base2check == InputBase2.Text && base16check == InputBase16.Text)
+            //Exception handling to ensure base2check is an int
+            if (int.TryParse(base2check, out int BinaryCheck))
             {
-                StatusMessageBox.Text = "\nBoth codes were entered corrected, Access Granted.";
-                this.BackgroundImage = Properties.Resources.Access_granted;
+                MessageBox.Show("This is a valid integer");
+            }
+            //If it is not display a message
+            else
+            {
+                MessageBox.Show("Use integers only!");
+                //Change the background image to show a bad result
+                this.BackgroundImage = Properties.Resources.Error;
+
+            }
+            //Exception handling to ensure base16check is an int
+            if (int.TryParse(base16check, out int Hexcheck))
+            {
+                MessageBox.Show("This is a valid integer");
             }
             else
             {
-                StatusMessageBox.Text = "\nOne of the codes were entered incorrectly, Access Denied";
-                this.BackgroundImage = Properties.Resources.explosion;
+                MessageBox.Show("Use integers only!");
+                //Change the background image to show a bad result
+                this.BackgroundImage = Properties.Resources.Error;
+            }
+            //Try block for exception handling to make sure the program does not break
+            try
+            {
+                Hexcheck = int.Parse(InputBase16.Text);
+                BinaryCheck = int.Parse(InputBase2.Text);
+
+                
+                //Check if the input is correct by comparing the input with the conversion variable
+                if (base2check == InputBase2.Text && base16check == InputBase16.Text)
+                {
+                    //Display the conversion for base16
+                    label_display_base16.Visible = true;
+                    //Display the conversion for base2
+                    label_display_base2.Visible = true;
+                    //Display they have entered the right code
+                    StatusMessageBox.Text = "\nBoth codes were entered corrected, Access Granted.";
+                    //Show a successful background image
+                    this.BackgroundImage = Properties.Resources.Access_granted;
+                }
+                //If the did not enter the right code we go into here
+                else
+                {
+                    //Display text telling the user they entered the wrong code
+                    StatusMessageBox.Text = "\nOne of the codes were entered incorrectly, Access Denied";
+                    //Change the background image to show a bad result
+                    this.BackgroundImage = Properties.Resources.explosion;
+                }
+            }
+            //If something fails display this message
+            catch 
+            {
+                MessageBox.Show("Please provide intergers only");
+                //Change the background image to show a bad result
+                this.BackgroundImage = Properties.Resources.Error;
+
             }
         }
     }
