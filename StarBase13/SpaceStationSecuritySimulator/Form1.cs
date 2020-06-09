@@ -110,9 +110,9 @@ namespace SpaceStationSecuritySimulator
                 }
             }
             //If something fails display this message
-            catch 
+            catch (Exception exception)
             {
-                MessageBox.Show("Please provide intergers only");
+                MessageBox.Show(exception.Message);
                 //Change the background image to show a bad result
                 this.BackgroundImage = Properties.Resources.Error;
 
